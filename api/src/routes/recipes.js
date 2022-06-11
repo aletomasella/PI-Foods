@@ -2,6 +2,7 @@ const { Router, response } = require("express");
 const axios = require("axios");
 const { apiKey } = require("../db");
 const api = require("../../apiRoutes");
+const { filterData } = require("../utils");
 
 const router = Router();
 
@@ -15,8 +16,12 @@ router.get("/", async (req, res) => {
       `${api.searchRecipes}?query=${name}&apiKey=${apiKey}${addRecipeInfo}${numberOfRecipes}`
     );
     // console.log(response.data);
-    if (response.data) {
-      res.send(response.data);
+    if (response.data.results) {
+      const filteredData = response.data.results.map((recipe) =>
+        filterData(recipe)
+      );
+      // res.send(response.data.results);
+      res.send(filteredData);
     } else {
       res.send("No info available");
     }
