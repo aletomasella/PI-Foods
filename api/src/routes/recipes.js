@@ -7,7 +7,7 @@ const { filterData } = require("../utils");
 const router = Router();
 
 const addRecipeInfo = "&addRecipeInformation=true";
-const numberOfRecipes = "&number=100";
+const numberOfRecipes = "&number=50";
 
 router.get("/", async (req, res) => {
   const { name } = req.query;

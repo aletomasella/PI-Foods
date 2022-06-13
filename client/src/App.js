@@ -1,9 +1,10 @@
-import './App.css';
+import Blog from "./components/Blog";
+import Recipes from "./components/Recipes";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
+    <div className=" font-bold underline">
+      <Recipes />
     </div>
   );
 }
